@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liman.www.manage.mapper.PmsSkuSaleAttrValueMapper">
+
+    <insert id="insert" useGeneratedKeys="true">
+        insert into pms_sku_sale_attr_value(sku_id, sale_attr_id, sale_attr_value_id, sale_attr_name,
+        sale_attr_value_name)
+        values
+        <foreach collection="param1" separator="," item="pmsSkuSaleAttrValue">
+            (#{param2},#{pmsSkuSaleAttrValue.saleAttrId},#{pmsSkuSaleAttrValue.saleAttrValueId},#{pmsSkuSaleAttrValue.saleAttrName},
+            #{pmsSkuSaleAttrValue.saleAttrValueName})
+        </foreach>
+    </insert>
+</mapper>

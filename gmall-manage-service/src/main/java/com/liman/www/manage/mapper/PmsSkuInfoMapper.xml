@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liman.www.manage.mapper.PmsSkuInfoMapper">
+
+    <insert id="insert" parameterType="com.liman.www.bean.PmsSkuInfo" useGeneratedKeys="true" keyProperty="id">
+        insert into pms_sku_info(product_id, price, sku_name, sku_desc, weight, catalog3_id, sku_default_img)
+        values(#{productId},#{price},#{skuName},#{skuDesc},#{weight},#{catalog3Id},#{skuDefaultImg})
+    </insert>
+
+
+</mapper>

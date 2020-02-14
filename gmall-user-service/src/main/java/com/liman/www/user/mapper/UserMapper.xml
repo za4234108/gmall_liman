@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liman.www.user.mapper.UserMapper">
+
+    <select id="getAllUmsMember" resultType="com.liman.www.bean.UmsMember">
+        select * from ums_member
+    </select>
+
+    <select id="getAllUmsMemberReceiveAddress" parameterType="java.lang.String"
+            resultType="com.liman.www.bean.UmsMemberReceiveAddress">
+        select * from ums_member_receive_address where member_id=#{id}
+     </select>
+
+    <delete id="deteleUmsMember" parameterType="java.lang.String">
+        delete from ums_member where id=#{id}
+    </delete>
+</mapper>

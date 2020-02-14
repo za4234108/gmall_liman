@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liman.www.manage.mapper.PmsBaseAttrValueMapper">
+    <insert id="insertByAttrId" useGeneratedKeys="true">
+        insert into pms_base_attr_value (value_name, attr_id) values
+        <foreach collection="param1" item="pmsBaseAttrValue" separator=",">
+            (#{pmsBaseAttrValue.valueName},#{param2})
+        </foreach>
+    </insert>
+
+    <select id="selectByAttrId" parameterType="java.lang.String"
+            resultType="com.liman.www.bean.PmsBaseAttrValue">
+        select * from pms_base_attr_value where attr_id=#{attrid}
+    </select>
+    <delete id="deleteByAttrId" parameterType="java.lang.String">
+        delete from pms_base_attr_value where attr_id=#{id}
+    </delete>
+
+    <select id="select" parameterType="java.util.List" resultType="com.liman.www.bean.PmsBaseAttrValue">
+        select * from pms_base_attr_value where attr_id in
+        <foreach collection="list" open="(" close=")" item="item" separator=",">
+            #{item.id}
+        </foreach>
+    </select>
+</mapper>
